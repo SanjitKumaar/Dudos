@@ -1,10 +1,11 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#102A43"><title>Dudos Engineering | Share Feedback</title>
-<style>:root{--navy:#102A43;--teal:#0B7285;--bg:#F3F7FA;--muted:#52606D;--line:#D7E5EA}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:18px;background:var(--bg);font-family:Arial,Helvetica,sans-serif;color:var(--navy)}main{width:min(100%,620px);background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 12px 36px #102a4318}header{background:var(--navy);color:#fff;padding:26px;border-bottom:5px solid var(--teal)}h1{font-size:23px;margin:0 0 8px}header p{margin:0;color:#d8edf0;line-height:1.5}section{padding:24px}.kicker{color:var(--teal);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase}.intro{line-height:1.55}#feedback{font-size:17px;line-height:1.65;padding:20px;border:1px solid var(--line);border-radius:14px;background:#F3F7FA;min-height:130px;display:flex;align-items:center}button{display:block;width:100%;padding:15px 16px;border:0;border-radius:11px;font-size:15px;font-weight:700;cursor:pointer;margin-top:12px}.primary{background:var(--teal);color:#fff}.secondary{background:#EAF4F6;color:var(--navy)}.status{min-height:20px;color:var(--teal);font-size:13px;line-height:1.4}.note{font-size:12px;color:var(--muted);line-height:1.55;margin:12px 0 0}</style></head><body><main><header><h1>DUDOS ENGINEERING PVT. LTD.</h1><p>We value your honest feedback.</p></header><section><p class="kicker">Your feedback</p><p class="intro">A feedback suggestion is ready below. If it reflects your experience, copy it to Google. Generate another suggestion whenever you like.</p><div id="feedback" aria-live="polite"></div><button class="primary" id="copyContinue">Copy &amp; Continue to Google</button><button class="secondary" id="another">Generate Another Feedback</button><p class="status" id="status" role="status"></p><p class="note">Please use only feedback that truthfully reflects your own experience. You can edit it on Google and choose your own star rating. This page does not submit a review automatically.</p></section></main>
+<style>:root{--navy:#102A43;--teal:#0B7285;--bg:#F3F7FA;--muted:#52606D;--line:#D7E5EA}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:18px;background:var(--bg);font-family:Arial,Helvetica,sans-serif;color:var(--navy)}main{width:min(100%,620px);background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 12px 36px #102a4318}header{background:var(--navy);color:#fff;padding:26px;border-bottom:5px solid var(--teal)}h1{font-size:23px;margin:0 0 8px}header p{margin:0;color:#d8edf0;line-height:1.5}section{padding:24px}.kicker{color:var(--teal);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase}.intro{line-height:1.55}#feedback{font-size:17px;line-height:1.65;padding:20px;border:1px solid var(--line);border-radius:14px;background:#F3F7FA;min-height:130px;display:flex;align-items:center}button{display:block;width:100%;padding:15px 16px;border:0;border-radius:11px;font-size:15px;font-weight:700;cursor:pointer;margin-top:12px}.primary{background:var(--teal);color:#fff}.secondary{background:#EAF4F6;color:var(--navy)}.status{min-height:20px;color:var(--teal);font-size:13px;line-height:1.4}.note{font-size:12px;color:var(--muted);line-height:1.55;margin:12px 0 0}</style></head><body><main><header><h1>DUDOS ENGINEERING PVT. LTD.</h1><p>We value your honest feedback.</p></header><section><p class="kicker">Your feedback</p><p class="intro">A feedback suggestion is ready below. If it accurately reflects your experience, copy it to Google. Generate another suggestion whenever you like.</p><div id="feedback" aria-live="polite"></div><button class="primary" id="copyContinue">Copy &amp; Continue to Google</button><button class="secondary" id="another">Generate Another Feedback</button><p class="status" id="status" role="status"></p><p class="note">Please use only wording that truthfully reflects your own experience and edit it if needed. You can choose your own star rating on Google. This page does not submit a review automatically.</p></section></main>
 <script>
 const googleReviewUrl='https://www.google.com/maps/place/DUDOS+ENGINEERING+PVT+LTD/@20.2154457,85.8494578,18z/data=!4m8!3m7!1s0x3a19a6cde0a17d6f:0x5c42873dd7647f1!8m2!3d20.2154788!4d85.8507513!9m1!1b1!16s%2Fg%2F11g8cfzk_3?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D';
 const services=['geotechnical investigation and soil testing','topographical and detailed surveying','material testing and quality monitoring','estimating and DPR preparation','architectural and structural design','plate load and pile load testing','non-destructive testing (NDT)','mapping and digitalization','structural and highway design','project management consultancy','construction supervision','engineering consultancy'];
-const short=['Professional engineering support','Helpful communication','Clear technical guidance','Reliable service experience','Good project coordination','Helpful project assistance','Responsive team support','Clear reports and documentation','Straightforward service process','Engineering support received','Communication could improve','More timely updates needed','Reports could be clearer','Coordination could improve','Scheduling could be better','More detail would help','Professional approach','Clear project communication','Practical service experience','Helpful technical support'];
-const med=[
+const shortPositive=['Professional engineering support','Helpful communication','Clear technical guidance','Reliable service experience','Good project coordination','Helpful project assistance','Responsive team support','Clear reports and documentation','Professional approach','Good technical support','Smooth coordination','Useful project guidance','Clear project communication','Supportive team','Well-organized process'];
+const shortNeutral=['Straightforward service process','Clear project information','Practical engineering support','Helpful project discussion'];
+const mediumPositive=[
 'I appreciated the professional approach and clear communication from Dudos Engineering.',
 'The team provided helpful guidance during my interaction with Dudos Engineering.',
 'My experience with Dudos Engineering was positive in terms of coordination and support.',
@@ -13,35 +14,51 @@ const med=[
 'The explanations and project communication helped me understand the process.',
 'I appreciated the organized approach to the work and the support provided.',
 'The documentation and guidance were useful for my project needs.',
-'My interaction with Dudos Engineering was straightforward and the process was explained clearly.',
-'The service process was generally as expected for my project requirements.',
-'The team communicated the basic project details and next steps.',
-'My experience had positive points, although some communication and coordination could be smoother.',
-'The process was useful overall, but a few details could have been explained more clearly.',
-'Some parts of the service worked well, while scheduling could be improved.',
-'I received helpful information, though I would have appreciated more regular updates.',
-'My experience could have been better with clearer communication and more timely updates.',
-'Some parts of the process did not fully meet my expectations and could be improved.',
-'I would appreciate clearer documentation and more consistent coordination in future.',
-'More detailed explanations of the technical process would improve the experience.',
-'The service process could benefit from better scheduling and progress updates.'
+'The team made the project process easier to understand through clear communication.',
+'I appreciated the practical guidance and professional interaction with the team.',
+'The information shared by Dudos Engineering was helpful for my project planning.',
+'I had a good experience discussing my engineering requirements with the team.',
+'The coordination and explanations were helpful during my interaction with Dudos Engineering.',
+'I valued the clear information and support provided for my project requirements.',
+'Dudos Engineering offered useful engineering guidance and a professional approach.'
 ];
-const long=[
+const mediumNeutral=[
+'My interaction with Dudos Engineering was straightforward and the process was explained clearly.',
+'The service process was generally in line with my project requirements.',
+'The team communicated the main project details and next steps clearly.',
+'My experience was practical, with the main requirements discussed during the process.'
+];
+const longPositive=[
 'I had a positive interaction with Dudos Engineering. The team discussed the project requirements and provided helpful communication during the process. The information shared helped me understand the work and the next steps.',
 'I appreciated the professional approach during my interaction with Dudos Engineering. The project process was explained clearly, and the guidance was useful for understanding the requirements. My feedback reflects the parts of the service I experienced directly.',
 'My experience with Dudos Engineering was positive in terms of communication and support. I found the explanations useful and appreciated having the project requirements discussed. Clear coordination can make engineering work easier to follow.',
-'My interaction with Dudos Engineering involved discussing project requirements and the service process. The information shared covered the main points I needed to understand. Overall, the experience was broadly in line with my expectations.',
-'My experience had both positive points and areas that could improve. Some of the information and support were useful, although more consistent updates would have made the process easier to follow. This feedback reflects my own experience.',
-'I found parts of the interaction with Dudos Engineering helpful, particularly the discussion of project requirements. However, clearer communication around timing and next steps would improve the overall process. I hope this feedback is useful for future service improvements.',
-'My experience with Dudos Engineering did not fully meet my expectations. Clearer communication, more consistent updates, and better explanation of the next steps would have improved the process. I am sharing this feedback to describe my experience honestly.',
-'I believe the service process could be improved through clearer documentation and more regular communication. Some details were not as easy to follow as I expected. Better coordination would make it easier for customers to understand progress and requirements.'
+'I found the interaction with Dudos Engineering helpful for my project needs. The information provided gave me a clearer understanding of the process, and the communication supported my next steps. This feedback reflects my own experience.',
+'I appreciated the clear and professional communication during my interaction with Dudos Engineering. The team discussed the requirements and explained the process in a way that was easy to follow. The guidance was useful for understanding my project needs.',
+'Dudos Engineering provided helpful information during my project discussion. I appreciated the time taken to explain the requirements and outline the next steps. The experience was professional and gave me a clearer picture of the engineering process.',
+'My interaction with Dudos Engineering was a good experience. The team communicated the relevant information and helped me understand the project process. I valued the professional approach and the support related to my requirements.',
+'I appreciated the organized approach and technical guidance during my interaction with Dudos Engineering. The information shared was useful for understanding the scope of the work and the process involved. This reflects my own experience with the service.'
+];
+const longNeutral=[
+'My interaction with Dudos Engineering involved discussing project requirements and the service process. The information shared covered the main points I needed to understand. Overall, the experience was straightforward and relevant to my requirements.',
+'The service process with Dudos Engineering was explained in terms of the project requirements and next steps. I was able to understand the general approach. This summary reflects my own interaction and the information relevant to my needs.'
 ];
 const pool=[];
-for(let i=0;i<150;i++){let s=short[i%short.length],svc=services[Math.floor(i/short.length)%services.length];pool.push(s);}
-for(let i=0;i<200;i++){let base=med[i%med.length],svc=services[Math.floor(i/med.length)%services.length];pool.push(base+' My comments relate to '+svc+'.');}
-for(let i=0;i<150;i++){let base=long[i%long.length],svc=services[Math.floor(i/long.length)%services.length];pool.push(base+' My comments relate to '+svc+' and my own project requirements.');}
+function addSet(kind,count,positive,neutral,positiveShare){
+ for(let i=0;i<count;i++){
+  const usePositive=(i%10)<positiveShare;
+  const base=(usePositive?positive:neutral)[Math.floor(i/(usePositive?1:1))%(usePositive?positive:neutral).length];
+  const svc=services[Math.floor(i/10)%services.length];
+  let text=base;
+  if(kind==='medium' && i%3===0) text=base+' My comments relate to '+svc+'.';
+  if(kind==='long' && i%3===0) text=base+' My comments relate to '+svc+' and my own project requirements.';
+  pool.push({kind,text,positive:usePositive});
+ }
+}
+addSet('short',150,shortPositive,shortNeutral,9);
+addSet('medium',200,mediumPositive,mediumNeutral,9);
+addSet('long',150,longPositive,longNeutral,9);
 let previous=-1;
-function generate(){let n;do{n=Math.floor(Math.random()*pool.length)}while(n===previous);previous=n;document.getElementById('feedback').textContent=pool[n];document.getElementById('status').textContent='';}
+function generate(){let n;do{n=Math.floor(Math.random()*pool.length)}while(n===previous);previous=n;document.getElementById('feedback').textContent=pool[n].text;document.getElementById('status').textContent='';}
 generate();
 document.getElementById('another').addEventListener('click',generate);
 document.getElementById('copyContinue').addEventListener('click',async()=>{const text=document.getElementById('feedback').textContent;const status=document.getElementById('status');try{await navigator.clipboard.writeText(text);status.textContent='Copied. Opening Google…';window.location.href=googleReviewUrl;}catch(e){status.textContent='Clipboard access was blocked. Select and copy the feedback, then open Google.';const range=document.createRange();range.selectNodeContents(document.getElementById('feedback'));const sel=window.getSelection();sel.removeAllRanges();sel.addRange(range);}});
