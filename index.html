@@ -49,8 +49,19 @@ function addSet(kind,count,positive,neutral,positiveShare){
   const base=(usePositive?positive:neutral)[Math.floor(i/(usePositive?1:1))%(usePositive?positive:neutral).length];
   const svc=services[Math.floor(i/10)%services.length];
   let text=base;
-  if(kind==='medium' && i%3===0) text=base+' My comments relate to '+svc+'.';
-  if(kind==='long' && i%3===0) text=base+' My comments relate to '+svc+' and my own project requirements.';
+  if(kind==='medium' && i%3===0) text=[
+    'I spoke with Dudos Engineering about '+svc+' and found the team helpful.',
+    'The information I received about '+svc+' was clear and useful.',
+    'I had a good experience discussing '+svc+' with the team.',
+    'The team explained the process for '+svc+' in a way I could understand.',
+    'I appreciated the help I received with my '+svc+' enquiry.'
+  ][Math.floor(i/3)%5];
+  if(kind==='long' && i%3===0) text=[
+    'I contacted Dudos Engineering about '+svc+' and appreciated how the team explained the process. The information was useful and helped me understand what to expect next.',
+    'My experience discussing '+svc+' with Dudos Engineering was good. The team answered my questions and gave me a clearer idea of the work involved.',
+    'I appreciated the support from Dudos Engineering when I enquired about '+svc+'. The discussion was helpful, and I came away with a better understanding of the process.',
+    'I spoke with the team about '+svc+' and found the conversation useful. They went through the main points and helped me understand the next steps.'
+  ][Math.floor(i/3)%4];
   pool.push({kind,text,positive:usePositive});
  }
 }
