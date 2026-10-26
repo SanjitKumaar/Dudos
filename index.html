@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#102A43">
+<title>Dudos Engineering | Share Feedback</title>
+<style>
+:root{--navy:#102A43;--teal:#0B7285;--bg:#F3F7FA;--muted:#52606D}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--navy);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+main{width:min(100%,620px);background:white;border-radius:22px;box-shadow:0 12px 36px #102a4318;overflow:hidden}
+header{background:var(--navy);color:white;padding:28px 26px;border-bottom:5px solid var(--teal)}
+h1{font-size:24px;margin:0 0 8px}header p{margin:0;color:#d8edf0}section{padding:26px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--teal);text-transform:uppercase}
+#suggestion{line-height:1.6;font-size:17px;background:#F3F7FA;border:1px solid #D7E5EA;padding:18px;border-radius:14px;min-height:118px;margin:12px 0 16px}
+button{display:block;width:100%;text-align:center;border:0;border-radius:11px;padding:14px 16px;font-size:15px;font-weight:700;cursor:pointer;margin:10px 0}
+.primary{background:var(--teal);color:white}.secondary{background:#EAF4F6;color:var(--navy)}
+.note{font-size:13px;line-height:1.5;color:var(--muted)}.status{min-height:20px;color:var(--teal);font-size:13px}
+</style></head>
+<body><main>
+<header><h1>DUDOS ENGINEERING PVT. LTD.</h1><p>We value your honest feedback.</p></header>
+<section>
+<p class="eyebrow">A little help getting started</p>
+<p>Review the suggestion below. Please edit it so it reflects your own experience, or write your own feedback.</p>
+<div id="suggestion" aria-live="polite"></div>
+<button class="primary" id="copyContinue">Copy &amp; Continue to Google</button>
+<button class="secondary" id="next">Show another suggestion</button>
+<p class="status" id="status" role="status"></p>
+<p class="note">When you click “Copy &amp; Continue,” this page will try to copy the suggestion and then open Google. You may need to paste it into the review box yourself. Please choose your own star rating and only post comments that are true to your experience. This page does not submit a review for you.</p>
+</section></main>
+<script>
+const googleReviewUrl = 'https://www.google.com/maps/place/DUDOS+ENGINEERING+PVT+LTD/@20.2154457,85.8494578,18z/data=!4m8!3m7!1s0x3a19a6cde0a17d6f:0x5c42873dd7647f1!8m2!3d20.2154788!4d85.8507513!9m1!1b1!16s%2Fg%2F11g8cfzk_3?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D';
+const suggestions = [
+"I appreciated the communication and support from the Dudos Engineering team. [Add a detail that reflects your experience.]",
+"My experience with Dudos Engineering was [describe your experience]. The team helped with [mention a real service or interaction].",
+"Thank you to Dudos Engineering for assisting with [project/service]. One thing I valued was [your genuine observation].",
+"I worked with Dudos Engineering for [service/project]. My feedback about the process is [share your honest thoughts].",
+"Dudos Engineering supported us with [specific work]. [Describe what went well or what could be improved.]",
+"My interaction with Dudos Engineering involved [brief context]. I would describe the experience as [your own assessment] because [reason]."
+];
+let last = -1;
+function pickSuggestion() {
+  let i;
+  do { i = Math.floor(Math.random() * suggestions.length); } while (i === last && suggestions.length > 1);
+  last = i;
+  document.getElementById('suggestion').textContent = suggestions[i];
+  document.getElementById('status').textContent = '';
+}
+pickSuggestion();
+document.getElementById('next').addEventListener('click', pickSuggestion);
+document.getElementById('copyContinue').addEventListener('click', async () => {
+  const text = document.getElementById('suggestion').textContent;
+  const status = document.getElementById('status');
+  try {
+    await navigator.clipboard.writeText(text);
+    status.textContent = 'Copied. Opening Google…';
+    window.location.href = googleReviewUrl;
+  } catch (err) {
+    status.textContent = 'Clipboard access was blocked. Select and copy the text, then open Google.';
+    const range = document.createRange();
+    range.selectNodeContents(document.getElementById('suggestion'));
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+  }
+});
+</script></body></html>
